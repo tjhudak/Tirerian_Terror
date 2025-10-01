@@ -11,7 +11,15 @@ export class PlayerChar {
         if (this.inventory.length === 0) {
             return "Your pockets are empty.";
         }
-        return this.inventory.map(i => `${i.name} (${i.type})`).join(", ");
+        let list = [];
+        for (let i of this.inventory) {
+            let text = i.name + " (" + i.type + ") x" + i.quantity;
+            if (i.effect) {
+                text += " [" +i.efffect + "]";
+            }
+            list.push(text);
+        }
+        return list.join(", ");
       }
 
       addItem(name, type, quantity = 1, effect = null) {
