@@ -7,9 +7,18 @@ import { story } from "./story.js";
 const player = new PlayerChar();
 player.addItem("Gold", "currency", 2, null);
 
+
+let showing = false;
 document.getElementById("inventoryBTN").onclick = () => {
+   if (showing == false) {
   document.getElementById("Inventory").innerText =
     "Inventory: " + player.showInventory();
+    showing = true;
+  }
+  else {
+    document.getElementById("Inventory").innerText = "";
+    showing = false;
+  }
 };
 
 let current = "start";
