@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Roll Tests</title>
+        <style>
+        body { font-family: arial; padding: 20px; background: #000; color: #ffffff; }
+        button {margin: 20px; padding: 40px;}
+
+        </style>
+    </head>
+    <body>
+        <button onclick="RollEm(4)">Roll d4</button>
+        <button onclick="RollEm(6)">Roll d6</button>
+        <button onclick="RollEm(8)">Roll d8</button>
+        <button onclick="RollEm(10)">Roll d10</button>
+        <button onclick="RollEm(12)">Roll d12</button>
+        <button onclick="RollEm(20)">Roll d20</button>
+        <div id="Roll_em"></div> 
+
+    </body>
+    <script>
+        
+        
+        
+        function RollEm(number) {
+            let result = "";
+            // Random number generation for dice rolls based on input parameters                  
+            let random = Math.floor(Math.random() * number) + 1;
+            result = "d" + number + " = " + random;
+            // print to screen the roll result
+            document.getElementById("Roll_em").innerHTML = result + "<br>" + "<br>";
+            
+        }
+
+    </script>
+</html>
