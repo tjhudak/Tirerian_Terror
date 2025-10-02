@@ -6,3 +6,11 @@ export class Item {
         this.effect = effect;
       }
     }
+
+export class Weapons extends Item {
+    constructor(name, type, quantity, damage, multiplier) {
+        super(name, type, quantity);
+        this.damage = damage;
+        this.multiple = multiplier;
+    }
+}

@@ -23,7 +23,7 @@ export const story = {
     "A vast wide open area with dead weeds knee high. It looks bleak and lifeless.",
     [
       new Choice("Go Back", "start"),
-      new Choice("Check Inventory", null, "inventory"),
+      new Choice("Pick up Rock", null, "pickup_rock")
     ]
   ),
 };

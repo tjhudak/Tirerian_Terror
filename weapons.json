@@ -2,15 +2,17 @@
   "rock": { 
     "name": "Rock", 
     "type": "weapon", 
-    "damage": 2, 
-    "effect": "Deals 2 damage" 
+    "damage": 1, 
+    "effect": "Deals 2 damage",
+    "multiplier" : "4"
   },
 
-  "sword": { 
+  "rusty sword": { 
     "name": "Sword", 
     "type": "weapon", 
-    "damage": 5, 
-    "effect": "Deals 5 damage" 
+    "damage": 3, 
+    "effect": "Deals 5 damage", 
+    "multiplier" : "4"
   }
 
 
