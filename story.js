@@ -20,10 +20,12 @@ export const story = {
   ),
 
   field: new Scene(
-    "A vast wide open area with dead weeds knee high. It looks bleak and lifeless.",
+    `A vast wide open area with dead weeds knee high. It looks bleak and lifeless. There is a snake in the weeds it looks <br>
+    like its slithering toward you. You see a rock on the ground. `,
     [
       new Choice("Go Back", "start"),
-      new Choice("Pick up Rock", null, "pickup_rock")
+      new Choice("Pick up Rock", null, "pickup_rock"),
+      new Choice("Attack Snake", null, "attack_snake"),
     ]
   ),
 };

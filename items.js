@@ -14,3 +14,9 @@ export class Weapons extends Item {
         this.multiple = multiplier;
     }
 }
+
+
+export const itemActions = {
+  pickup_rock: () => { /* add rock */ },
+  pickup_sword: () => { /* add sword */ }
+};

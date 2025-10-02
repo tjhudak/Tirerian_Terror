@@ -2,9 +2,9 @@
 {
 "snake": {
     "name" : "Snake",
-    "health" : "12",
-    "damage" : "1",
-    "multiplier" : "4"
+    "health" : 12,
+    "damage" : 1,
+    "multiplier" : 4
 
 }
 

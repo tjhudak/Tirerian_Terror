@@ -1,12 +1,14 @@
 import { PlayerChar } from "./player.js";
 import { Enemy } from "./enemies.js";
-// If you don’t need Item yet, this line can be removed safely
-import { Item } from "./items.js";
 import { story } from "./story.js";
 import weapons from "./weapons.json" assert {type: "json"};
 import enemies from "./enemies.json" assert {type: "json"};
+import { combatActions } from "./combat.js";
+import { itemActions } from "./items.js";
 
-const player = new PlayerChar();
+
+
+export const player = new PlayerChar();
 player.addItem("Gold", "currency", 2, null);
 
 
@@ -26,19 +28,12 @@ document.getElementById("inventoryBTN").onclick = () => {
 let current = "start";
 
 function handleAction(action) {
-  switch (action) {
-    case "inventory":
-      document.getElementById("Inventory").innerText =
-        "Inventory: " + player.showInventory();
-      break;
-
-      case "pickup_rock":
-        const rock = weapons.rock
-        player.addItem(rock.name, rock.type, 1, rock.effect);
-        break;
-
-    default:
-      console.log("No handler for action:", action);
+  if (combatActions[action]) {
+    combatActions[action](player);  // ✅ pass player into combat
+  } else if (itemActions[action]) {
+    itemActions[action](player);    // optional: if item actions also need player
+  } else {
+    console.warn("Unknown action:", action);
   }
 }
 
