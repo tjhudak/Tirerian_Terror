@@ -1,8 +1,6 @@
 import { PlayerChar } from "./player.js";
 import { Enemy } from "./enemies.js";
 import { story } from "./story.js";
-import weapons from "./weapons.json" assert {type: "json"};
-import enemies from "./enemies.json" assert {type: "json"};
 import { combatActions } from "./combat.js";
 import { itemActions } from "./items.js";
 
