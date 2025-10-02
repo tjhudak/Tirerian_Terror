@@ -8,6 +8,8 @@ import { itemActions } from "./items.js";
 
 export const player = new PlayerChar();
 player.addItem("Gold", "currency", 2, null);
+updateStats(player);
+
 
 
 let showing = false;
