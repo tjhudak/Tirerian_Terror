@@ -1,0 +1,19 @@
+{
+  "rock": { 
+    "name": "Rock", 
+    "type": "weapon", 
+    "damage": 2, 
+    "effect": "Deals 2 damage" 
+  },
+
+  "sword": { 
+    "name": "Sword", 
+    "type": "weapon", 
+    "damage": 5, 
+    "effect": "Deals 5 damage" 
+  }
+
+
+
+
+}
