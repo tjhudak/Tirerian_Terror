@@ -3,6 +3,8 @@ import { Enemy } from "./enemies.js";
 // If you don’t need Item yet, this line can be removed safely
 import { Item } from "./items.js";
 import { story } from "./story.js";
+import weapons from "./weapons.json" assert {type: "json"};
+import enemies from "./enemies.json" assert {type: "json"};
 
 const player = new PlayerChar();
 player.addItem("Gold", "currency", 2, null);
@@ -29,6 +31,12 @@ function handleAction(action) {
       document.getElementById("Inventory").innerText =
         "Inventory: " + player.showInventory();
       break;
+
+      case "pickup_rock":
+        const rock = weapons.rock
+        player.addItem(rock.name, rock.type, 1, rock.effect);
+        break;
+
     default:
       console.log("No handler for action:", action);
   }
@@ -53,11 +61,6 @@ function showScene(sceneKey) {
   });
 }
 
-function RollEm(number) {
-  let result = "";
-  let random = Math.floor(Math.random() * number) + 1;
-  result = "d" + number + " = " + random;
-  document.getElementById("story").innerHTML = result + "<br><br>";
-}
+
 
 showScene(current);
