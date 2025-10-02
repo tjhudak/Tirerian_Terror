@@ -33,6 +33,8 @@ async function handleAction(action) {
   } else {
     console.warn("Unknown action:", action);
   }
+  // always refresh HUD after action
+  updateStats(player);
 }
 
 function showScene(sceneKey) {
@@ -52,6 +54,18 @@ function showScene(sceneKey) {
     };
     choicesDiv.appendChild(btn);
   });
+}
+
+function updateStats(player) {
+  const statsDiv = document.getElementById("stats");
+  if (!statsDiv) return;
+
+  statsDiv.innerHTML = `
+    <strong>Player</strong><br>
+    HP: ${player.health}<br>
+    Weapon: ${player.weapon ? player.weapon.name : "None"}<br>
+    Gold: ${player.gold || 0}
+  `;
 }
 
 
