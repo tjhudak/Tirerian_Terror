@@ -27,11 +27,11 @@ document.getElementById("inventoryBTN").onclick = () => {
 
 let current = "start";
 
-function handleAction(action) {
+async function handleAction(action) {
   if (combatActions[action]) {
-    combatActions[action](player);  // ✅ pass player into combat
+    await combatActions[action](player);
   } else if (itemActions[action]) {
-    itemActions[action](player);    // optional: if item actions also need player
+    await itemActions[action](player);
   } else {
     console.warn("Unknown action:", action);
   }

@@ -1,9 +1,8 @@
-// combat.js
 import { getEnemy } from "./enemyManager.js";
 
 export const combatActions = {
-  attack_snake: (player) => {
-    const snake = getEnemy("snake"); // persistent enemy
+  attack_snake: async (player) => {
+    const snake = await getEnemy("snake");
 
     const msg1 = player.attack(snake);
     const msg2 = snake.health > 0
