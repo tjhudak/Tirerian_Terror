@@ -1,9 +1,9 @@
-let itemData = null;
+let itemsData = null;
 
 async function loadItems() {
-    if(!itemData) {
+    if(!itemsData) {
         const response = await fetch("./items.json");
-        itemData = await response.json();
+        itemsData = await response.json();
     }
     return itemsData;
 }
