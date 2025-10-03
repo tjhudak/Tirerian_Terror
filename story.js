@@ -15,7 +15,7 @@ export const story = {
     You have no way to go except forward toward the great unknown. In front of you lies...`,
     [
       new Choice("Go North", "field"),
-      new Choice("Check Inventory", null, "inventory"),
+      new Choice("Pickup Inheritance", null, "pickup:currency:gold:2"),
     ]
   ),
 
@@ -24,7 +24,7 @@ export const story = {
     like its slithering toward you. You see a rock on the ground. `,
     [
       new Choice("Go Back", "start"),
-      new Choice("Pick up Rock", null, "pickup_rock"),
+      new Choice("Pick up Rock", null, "pickup:weapons:rock"),
       new Choice("Attack Snake", null, "attack_snake"),
     ]
   ),

@@ -1,0 +1,30 @@
+{
+ "currency": {
+    "gold": {
+        "name": "Gold",
+        "type": "currency",
+        "quantity": 0,
+        "effect": null
+
+    }
+ },
+ "weapons": {
+    "rock": {
+        "name": "Rock",
+        "type": "weapon",
+        "damage": 2,
+        "multiplier": 4
+    },
+    "dagger": {
+        "name": "Dagger",
+        "type": "weapon",
+        "damage": 3,
+        "multiplier": 4
+    }
+ }
+
+
+
+
+
+}

@@ -1,5 +1,6 @@
 // items.js
 import { getWeapon } from "./weaponsManager.js";
+import { getItem } from "./itemsManager.js";
 import { player } from "./game.js";
 
 
@@ -23,10 +24,15 @@ export class Weapons extends Item {
 
 
 export const itemActions = {
-  pickup_rock: async () => {
-    const rock = await getWeapon("rock");
-    player.addItem(rock.name, rock.type, 1, null);
-    player.equipWeapon(rock);
-    document.getElementById("story").innerHTML = `You picked up a ${rock.name} and equipped it.`;
+  pickup: async (category, key, amount = 1) => {
+    const item = await getItem(category, key);
+
+    player.addItem(item.name, item.type, amount, item.effect);
+
+    if (item.type === "weapon") {
+        player.equipWeapon(item);
+    }
+    document.getElementById("story").innerHTML =
+      `You picked up ${amount} ${item.name}${amount > 1 ? "s" : ""}.`;
   }
 };

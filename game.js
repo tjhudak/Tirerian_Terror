@@ -7,7 +7,7 @@ import { itemActions } from "./items.js";
 
 
 export const player = new PlayerChar();
-player.addItem("Gold", "currency", 2, null);
+
 updateStats(player);
 
 
@@ -30,9 +30,15 @@ let current = "start";
 async function handleAction(action) {
   if (combatActions[action]) {
     await combatActions[action](player);
-  } else if (itemActions[action]) {
-    await itemActions[action](player);
-  } else {
+  } 
+  else if (action.startsWith("pickup:")) {
+    const parts = action.split(":"); // ["pickup", "currency", "gold", "2"]
+    const category = parts[1];
+    const key = parts[2];
+    const amount = parts[3] ? parseInt(parts[3], 10) : 1;
+    await itemActions.pickup(category, key, amount);
+  }
+  else {
     console.warn("Unknown action:", action);
   }
   // always refresh HUD after action
