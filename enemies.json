@@ -1,11 +1,20 @@
 
 {
-"snake": {
-    "name" : "Snake",
-    "health" : 12,
-    "damage" : 1,
-    "multiplier" : 4
 
-}
+  "common": {
+    "snake": {
+        "name" : "Snake",
+        "health" : 12,
+        "damage" : 2,
+        "multiplier" : 4
+    }
+  },
+
+    "rat": {
+        "name" : "Rat",
+        "health" : 12,
+        "damage" : 1,
+        "multiplier" : 4
+    }
 
 }

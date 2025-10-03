@@ -1,5 +1,5 @@
 import { PlayerChar } from "./player.js";
-import { Enemy } from "./enemies.js";
+import { Enemy, spawnEnemy } from "./enemies.js";
 import { story } from "./story.js";
 import { combatActions } from "./combat.js";
 import { itemActions } from "./items.js";
@@ -37,6 +37,17 @@ async function handleAction(action) {
     const key = parts[2];
     const amount = parts[3] ? parseInt(parts[3], 10) : 1;
     await itemActions.pickup(category, key, amount);
+  }
+  else if (action.startsWith("spawn:")) {
+    const parts = action.split(":");
+    const category = parts[1];
+    const key = parts[2];
+
+    currentEnemy = await spawnEnemy.spawn(category, key);
+
+     document.getElementById("story").innerHTML =
+      `A wild ${currentEnemy.name} appears!<br>Health: ${currentEnemy.health}`;
+
   }
   else {
     console.warn("Unknown action:", action);

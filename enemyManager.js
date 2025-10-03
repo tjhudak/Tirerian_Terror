@@ -1,11 +1,11 @@
 // enemyManager.js
 import { Enemy } from "./enemies.js";
 
-const activeEnemies = {};
+
 let enemyData = null;
 
 // Load JSON once
-async function loadData() {
+async function loadEnemy() {
   if (!enemyData) {
     const response = await fetch("./enemies.json");
     enemyData = await response.json();
@@ -13,17 +13,11 @@ async function loadData() {
   return enemyData;
 }
 
-export async function getEnemy(key) {
-  const data = await loadData();
+export async function getEnemy(category, key) {
+  const data = await loadEnemy();
 
-  if (!activeEnemies[key] || activeEnemies[key].health <= 0) {
-    const enemy = data[key];
-    activeEnemies[key] = new Enemy(
-      enemy.name,
-      enemy.health,
-      enemy.damage,
-      enemy.multiplier
-    );
+  if (!data[category] || !data[category][key]) {
+    throw new Error (`Enemy not found: ${category}.${key}`);
   }
-  return activeEnemies[key];
+  return data[category][key];
 }

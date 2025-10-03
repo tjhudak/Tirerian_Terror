@@ -25,7 +25,7 @@ export const story = {
     [
       new Choice("Go Back", "start"),
       new Choice("Pick up Rock", null, "pickup:weapons:rock"),
-      new Choice("Attack Snake", null, "attack_snake"),
+      new Choice("Attack Snake", null, "attack_rat"),
     ]
   ),
 };
