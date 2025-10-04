@@ -1,6 +1,6 @@
 
 import {RollEm} from "./dice.js";
-import { loadEnemy } from "./enemyManager.js";
+import { getEnemy } from "./enemyManager.js";
 
 
 export class Enemy {
@@ -27,7 +27,7 @@ export class Enemy {
     
 export const spawnEnemy = {
     spawn: async (category, key) => {
-        const enemy = await loadEnemy(category, key);
+        const enemy = await getEnemy(category, key);
 
         const monster = new Enemy(enemy.name, enemy.health, enemy.damage, enemy.multiplier);
         return monster;
